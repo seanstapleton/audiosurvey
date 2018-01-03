@@ -1,0 +1,27 @@
+{
+  "name": "audiosurvey",
+  "version": "1.0.0",
+  "description": "Nothing to see here...",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sstaples99/audiosurvey.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sstaples99/audiosurvey/issues"
+  },
+  "homepage": "https://github.com/sstaples99/audiosurvey#readme",
+  "dependencies": {
+    "firebase": "^4.8.1",
+    "next": "^4.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  }
+}

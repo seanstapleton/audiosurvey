@@ -1,36 +1,29 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import flush from 'styled-jsx/server'
-import firebase from 'firebase'
+import { ServerStyleSheet } from 'styled-components'
 
-const initFirebase = () => {
-  console.log("initializing firebase");
-  var config = {
-    apiKey: "AIzaSyDFcCwKExcbowCADH5eZyzjCG1gBL7igA4",
-    authDomain: "audiosurvey-51bd7.firebaseapp.com",
-    databaseURL: "https://audiosurvey-51bd7.firebaseio.com",
-    projectId: "audiosurvey-51bd7",
-    storageBucket: "",
-    messagingSenderId: "294339718190"
-  };
-  firebase.initializeApp(config);
-}
-
-export default class Doc extends Document {
-  static getInitialProps({ renderPage }) {
-    const { html, head, errorHtml, chunks } = renderPage()
-    const styles = flush()
-    return { html, head, errorHtml, chunks, styles }
-  }
-
-  render() {
+export default class MyDocument extends Document {
+  render () {
+    const sheet = new ServerStyleSheet()
+    const main = sheet.collectStyles(<Main />)
+    const styleTags = sheet.getStyleElement()
     return (
       <html>
         <Head>
-          <style>{``}</style>
+          {styleTags}
+          <style>{`
+            body {
+              background: #de6262; /* fallback for old browsers */
+              background: -webkit-linear-gradient(to right, #de6262, #ffb88c); /* Chrome 10-25, Safari 5.1-6 */
+              background: linear-gradient(to right, #de6262, #ffb88c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+              font-family: Helvetica, Sans-serif;
+            }
+          `}
+          </style>
         </Head>
-        <body className="">
-          {this.props.customValue}
-          <Main />
+        <body>
+          <div className='root'>
+            {main}
+          </div>
           <NextScript />
         </body>
       </html>

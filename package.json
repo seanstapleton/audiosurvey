@@ -20,8 +20,9 @@
   "homepage": "https://github.com/sstaples99/audiosurvey#readme",
   "dependencies": {
     "firebase": "^4.8.1",
-    "next": "^4.2.1",
+    "next": "^3.0.1-beta.18",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "styled-components": "^2.1.0"
   }
 }
